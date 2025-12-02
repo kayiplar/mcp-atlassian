@@ -87,7 +87,7 @@ class IssuesMixin(
             fields_param = fields
             if fields_param is None:
                 fields_param = ",".join(DEFAULT_READ_JIRA_FIELDS)
-            elif isinstance(fields_param, list | tuple | set):
+            elif isinstance(fields_param, (list, tuple, set)):
                 fields_param = ",".join(fields_param)
 
             # Ensure necessary fields are included based on special parameters
@@ -137,7 +137,7 @@ class IssuesMixin(
 
             # Convert properties to proper format if it's a list
             properties_param = properties
-            if properties and isinstance(properties, list | tuple | set):
+            if properties and isinstance(properties, (list, tuple, set)):
                 properties_param = ",".join(properties)
 
             # Get the issue data with all parameters
@@ -1028,7 +1028,7 @@ class IssuesMixin(
 
                 elif key == "attachments":
                     # Handle attachments separately - they're not part of fields update
-                    if value and isinstance(value, list | tuple):
+                    if value and isinstance(value, (list, tuple)):
                         # We'll process attachments after updating fields
                         pass
                     else:

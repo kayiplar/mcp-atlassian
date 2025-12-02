@@ -81,7 +81,7 @@ class SearchMixin(JiraClient, IssueOperationsProto):
             fields_param: str | None
             if fields is None:  # Use default if None
                 fields_param = ",".join(DEFAULT_READ_JIRA_FIELDS)
-            elif isinstance(fields, list | tuple | set):
+            elif isinstance(fields, (list, tuple, set)):
                 fields_param = ",".join(fields)
             else:
                 fields_param = fields
